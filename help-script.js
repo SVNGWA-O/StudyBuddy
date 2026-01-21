@@ -4,7 +4,7 @@
  * ====================================================================
  * @file help-script.js
  * @description Interactive support center with ticket system
- * @author StudyFlow Team
+ * @author Mugisha SANGWA OLIVIER ISHIMWE
  * @version 2.0.0
  *
  * FEATURES:

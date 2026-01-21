@@ -4,7 +4,7 @@
  * ====================================================================
  * @file signin-script.js
  * @description Handles all authentication interactions and validations
- * @author StudyFlow Team
+ * @author Mugisha SANGWA OLIVIER ISHIMWE
  * @version 2.0.0
  *
  * FEATURES:
