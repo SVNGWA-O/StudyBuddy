@@ -1,0 +1,1260 @@
+/** * @author Mugisha Sangwa Olivier Ishimwe * */
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Buddy - Your Free AI Academic Assistant</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Theme Customizer Panel -->
+    <div class="theme-customizer" id="themeCustomizer">
+      <button
+        class="customizer-toggle"
+        id="customizerToggle"
+        aria-label="Open theme customizer"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 1v6m0 6v6m-6-6H0m6 0h6m6 0h6"></path>
+        </svg>
+      </button>
+
+      <div class="customizer-panel" id="customizerPanel">
+        <div class="customizer-header">
+          <h3>Customize Your Theme</h3>
+          <button
+            class="customizer-close"
+            id="customizerClose"
+            aria-label="Close customizer"
+          >
+            &times;
+          </button>
+        </div>
+
+        <div class="customizer-content">
+          <!-- Preset Themes -->
+          <div class="customizer-section">
+            <h4>Preset Themes</h4>
+            <div class="theme-presets">
+              <button class="theme-preset active" data-theme="ocean-blue">
+                <span
+                  class="preset-color"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #0066cc 0%,
+                      #004d99 100%
+                    );
+                  "
+                ></span>
+                Ocean Blue
+              </button>
+              <button class="theme-preset" data-theme="midnight">
+                <span
+                  class="preset-color"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #1a1a2e 0%,
+                      #0f0f1e 100%
+                    );
+                  "
+                ></span>
+                Midnight
+              </button>
+              <button class="theme-preset" data-theme="forest">
+                <span
+                  class="preset-color"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #2d5a3d 0%,
+                      #1e3d2b 100%
+                    );
+                  "
+                ></span>
+                Forest
+              </button>
+              <button class="theme-preset" data-theme="sunset">
+                <span
+                  class="preset-color"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #ff6b6b 0%,
+                      #ee5a6f 100%
+                    );
+                  "
+                ></span>
+                Sunset
+              </button>
+              <button class="theme-preset" data-theme="lavender">
+                <span
+                  class="preset-color"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #8b5cf6 0%,
+                      #6d28d9 100%
+                    );
+                  "
+                ></span>
+                Lavender
+              </button>
+            </div>
+          </div>
+
+          <!-- Custom Color Picker -->
+          <div class="customizer-section">
+            <h4>Custom Primary Color</h4>
+            <div class="color-picker-wrapper">
+              <input type="color" id="primaryColorPicker" value="#0066cc" />
+              <label for="primaryColorPicker">Choose your color</label>
+            </div>
+          </div>
+
+          <!-- Color Wheel -->
+          <div class="customizer-section">
+            <h4>Multi-Color Palette Builder</h4>
+            <div class="color-wheel-container">
+              <div class="color-inputs">
+                <div class="color-input-group">
+                  <label>Primary</label>
+                  <input
+                    type="color"
+                    class="palette-color"
+                    data-var="--primary-color"
+                    value="#0066cc"
+                  />
+                </div>
+                <div class="color-input-group">
+                  <label>Secondary</label>
+                  <input
+                    type="color"
+                    class="palette-color"
+                    data-var="--secondary-color"
+                    value="#004d99"
+                  />
+                </div>
+                <div class="color-input-group">
+                  <label>Accent</label>
+                  <input
+                    type="color"
+                    class="palette-color"
+                    data-var="--accent-color"
+                    value="#00bfff"
+                  />
+                </div>
+                <div class="color-input-group">
+                  <label>Highlight</label>
+                  <input
+                    type="color"
+                    class="palette-color"
+                    data-var="--highlight-color"
+                    value="#ffd700"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dark Mode Toggle -->
+          <div class="customizer-section">
+            <h4>Display Mode</h4>
+            <div class="mode-toggle">
+              <button class="mode-btn active" data-mode="light">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                Light
+              </button>
+              <button class="mode-btn" data-mode="dark">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                  ></path>
+                </svg>
+                Dark
+              </button>
+            </div>
+          </div>
+
+          <!-- Reset Button -->
+          <button class="reset-theme-btn" id="resetTheme">
+            Reset to Default
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-brand">
+          <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path
+                d="M16 4L28 10V22L16 28L4 22V10L16 4Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 4V28M4 10L28 22M28 10L4 22"
+                stroke="currentColor"
+                stroke-width="1.5"
+                opacity="0.5"
+              />
+            </svg>
+          </div>
+          <span class="brand-name">Study Buddy</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="btn-secondary">
+            <a href="Signin.html">Sign In</a>
+          </button>
+          <button class="btn-primary">
+            <a href="Signin.html">Get Started Free</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background">
+        <div class="grid-overlay"></div>
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">100% Free • No Subscriptions</div>
+          <h1 class="hero-title">
+            Your Study Buddy that<br />
+            <span class="gradient-text">actually knows your textbook</span>
+          </h1>
+          <p class="hero-description">
+            Stop wasting time searching. Get personalized explanations,
+            summaries, and study plans integrated with your courses — completely
+            <b>free</b>.
+          </p>
+          <div class="hero-cta">
+            <button class="btn-primary btn-large">
+              Download for Free
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button class="btn-ghost btn-large">
+              Watch Demo
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-number">50K+</div>
+              <div class="stat-label">Active Students</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">1M+</div>
+              <div class="stat-label">Questions Answered</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">150</div>
+              <div class="stat-label">Avg. Hours Saved/Semester</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="mockup-container">
+            <div class="mockup-window">
+              <div class="window-header">
+                <div class="window-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="window-title">Biology 101 - Chapter 3</div>
+              </div>
+              <div class="window-content">
+                <div class="chat-message ai">
+                  <div class="message-avatar">AI</div>
+                  <div class="message-content">
+                    <p>
+                      Let me explain cellular respiration using your textbook's
+                      framework:
+                    </p>
+                    <div class="concept-box">
+                      <strong>Glycolysis</strong> →
+                      <strong>Krebs Cycle</strong> →
+                      <strong>Electron Transport</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Everything you need to succeed</h2>
+          <p class="section-subtitle">
+            A complete academic companion in your pocket
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                ></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">AI Tutor That Knows Your Course</h3>
+            <p class="feature-description">
+              Get explanations tailored to your specific textbook, syllabus, and
+              learning style. No more generic answers that don't match your
+              coursework.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Integrated Textbooks</h3>
+            <p class="feature-description">
+              Buy required textbooks at 40-60% off bookstore prices, fully
+              integrated with AI summaries, highlights, and instant
+              explanations.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Smart Scheduling & Reminders</h3>
+            <p class="feature-description">
+              Never miss a deadline. Syncs with Canvas, Blackboard, and your
+              calendar to prioritize what matters most.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">Visual Learning Tools</h3>
+            <p class="feature-description">
+              Automatically generate diagrams, flowcharts, and concept maps.
+              Turn dense text into clear visuals in seconds.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="12" y1="18" x2="12" y2="12"></line>
+                <line x1="9" y1="15" x2="15" y2="15"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Instant Article Summaries</h3>
+            <p class="feature-description">
+              Upload any academic article or PDF. Get structured summaries
+              highlighting key arguments, definitions, and exam-relevant
+              content.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Progress Tracking</h3>
+            <p class="feature-description">
+              See what you've mastered and what needs work. Track performance
+              trends and build confidence through visible progress.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How it works</h2>
+          <p class="section-subtitle">
+            From overwhelmed to on track in minutes
+          </p>
+        </div>
+
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Connect Your Courses</h3>
+              <p>
+                Link your Canvas, Blackboard, or other LMS. We'll automatically
+                import your schedule, assignments, and syllabi.
+              </p>
+            </div>
+            <div class="step-visual">
+              <div class="visual-placeholder">📚</div>
+            </div>
+          </div>
+
+          <div class="step step-reverse">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Get Personalized Help</h3>
+              <p>
+                Ask questions about your coursework. Our AI tutor knows your
+                textbook and syllabus, so every answer is relevant.
+              </p>
+            </div>
+            <div class="step-visual">
+              <div class="visual-placeholder">💡</div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Stay Organized & Ahead</h3>
+              <p>
+                Smart reminders, study plans, and progress tracking keep you on
+                schedule without the stress.
+              </p>
+            </div>
+            <div class="step-visual">
+              <div class="visual-placeholder">✅</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Simple, honest pricing</h2>
+          <p class="section-subtitle">
+            No subscriptions. No hidden fees. Just learning.
+          </p>
+        </div>
+
+        <div class="pricing-cards">
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <h3 class="pricing-title">Free Forever</h3>
+            <div class="pricing-amount">
+              <span class="currency">$</span>
+              <span class="price">0</span>
+              <span class="period">/month</span>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Unlimited AI tutoring
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Course integration (Canvas, Blackboard)
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Smart scheduling & reminders
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Article summaries & visual tools
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Progress tracking
+              </li>
+            </ul>
+            <button class="btn-primary btn-block">Get Started Free</button>
+          </div>
+
+          <div class="pricing-card">
+            <h3 class="pricing-title">Textbooks</h3>
+            <div class="pricing-amount">
+              <span class="price">40-60%</span>
+              <span class="period">off retail</span>
+            </div>
+            <ul class="pricing-features">
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Cheapest prices guaranteed
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Fully integrated with AI tutor
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Chapter summaries included
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Instant explanations as you read
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                One purchase, all semester support
+              </li>
+            </ul>
+            <button class="btn-secondary btn-block">Browse Textbooks</button>
+          </div>
+        </div>
+
+        <div class="pricing-note">
+          <p>
+            💙 We believe education shouldn't be expensive. The AI tutor is 100%
+            free. We only make money when we save you money on textbooks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================
+         This section tells the story of Study Buddy:
+         - Company introduction and context
+         - Mission, Vision, and Goals
+         - Founder's message
+         - Visual identity and brand story
+         ============================================ -->
+    <section class="about" id="about">
+      <div class="container">
+        <!-- ========================================
+                 SECTION HEADER
+                 Introduces the about section
+                 ======================================== -->
+        <div class="section-header">
+          <h2 class="section-title">About Study Buddy</h2>
+          <p class="section-subtitle">
+            Rising to meet the changing needs of modern education
+          </p>
+        </div>
+
+        <!-- ========================================
+                 COMPANY STORY
+                 Context about the educational landscape
+                 ======================================== -->
+        <div class="about-intro">
+          <div class="intro-content">
+            <h3 class="intro-title">A New Era in Education</h3>
+            <p class="intro-text">
+              We are living in a transformative moment in education. The
+              traditional model — where learning is expensive, fragmented, and
+              inaccessible to many — is no longer sustainable. Students today
+              face rising costs, disconnected tools, and a system that often
+              works against them rather than for them.
+            </p>
+            <p class="intro-text">
+              Study Buddy was born from a simple belief:
+              <strong>education should empower, not burden</strong>. We exist to
+              support students at the right age, at the right moment, with the
+              right tools — making academic success achievable for everyone,
+              regardless of their financial situation.
+            </p>
+            <p class="intro-text">
+              In the rise of this growing change in education, we stand with
+              students. We are not just building technology; we are building a
+              movement toward fairness, accessibility, and genuine support.
+            </p>
+          </div>
+        </div>
+
+        <!-- ========================================
+                 MISSION, VISION, AND GOALS
+                 Core company values and direction
+                 Grid layout for visual clarity
+                 ======================================== -->
+        <div class="mvg-container">
+          <!-- ====================================
+                     MISSION STATEMENT
+                     What we do and why we exist
+                     ==================================== -->
+          <div class="mvg-card mission">
+            <div class="mvg-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <h3 class="mvg-title">Our Mission</h3>
+            <p class="mvg-text">
+              To make quality education accessible and affordable for every
+              student by providing a free, AI-powered academic companion that
+              removes financial barriers to learning, eliminates wasted time,
+              and delivers personalized support that adapts to each student's
+              unique needs and learning style.
+            </p>
+          </div>
+
+          <!-- ====================================
+                     VISION STATEMENT
+                     Where we're headed and impact we seek
+                     ==================================== -->
+          <div class="mvg-card vision">
+            <div class="mvg-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <h3 class="mvg-title">Our Vision</h3>
+            <p class="mvg-text">
+              We envision a world where every student — regardless of
+              background, income, or circumstance — has access to intelligent,
+              compassionate learning support. A world where academic success is
+              determined by effort and understanding, not by the ability to
+              afford expensive tutors or subscription services.
+            </p>
+          </div>
+
+          <!-- ====================================
+                     GOALS
+                     Concrete objectives and commitments
+                     ==================================== -->
+          <div class="mvg-card goals">
+            <div class="mvg-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="mvg-title">Our Goals</h3>
+            <ul class="mvg-list">
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Support 1 million students in their academic journey by 2028
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Reduce textbook costs by an average of 50% for all users
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Save students a collective 10 million hours of study time
+                annually
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Partner with 500+ educational institutions to expand access
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Maintain 100% free access to core AI tutoring features
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ========================================
+                 FOUNDER'S MESSAGE
+                 Personal connection and company values
+                 Two-column layout: Image + Message
+                 ======================================== -->
+        <div class="founder-section">
+          <!-- ====================================
+                     SECTION DIVIDER
+                     Visual separation from MVG cards
+                     ==================================== -->
+          <div class="founder-divider">
+            <span class="divider-text">Message from Our Founder</span>
+          </div>
+
+          <div class="founder-content">
+            <!-- ================================
+                         FOUNDER IMAGE CONTAINER
+                         Left column - profile photo
+                         Includes placeholder for image
+                         ================================ -->
+            <div class="founder-image-container">
+              <!-- ============================
+                             FOUNDER PHOTO
+                             Replace src with actual image
+                             Recommended size: 500x500px
+                             ============================ -->
+              <div class="founder-image">
+                <!-- Placeholder - Replace with actual image -->
+                <img
+                  src="./images/Screenshot 2025-04-17 at 9.13.06 AM.png"
+                  alt="Founder of StudyBuddy"
+                  class="founder-photo"
+                />
+              </div>
+
+              <!-- ============================
+                             FOUNDER DETAILS
+                             Name and title
+                             ============================ -->
+              <div class="founder-details">
+                <h4 class="founder-name">Mugisha Sangwa Olivier Ishimwe</h4>
+                <p class="founder-title">Founder & CEO, Study Buddy</p>
+              </div>
+            </div>
+
+            <!-- ================================
+                         FOUNDER MESSAGE
+                         Right column - personal letter
+                         ================================ -->
+            <div class="founder-message">
+              <blockquote class="message-quote">
+                <!-- ========================
+                                 OPENING QUOTE
+                                 Personal greeting
+                                 ======================== -->
+                <p class="message-paragraph opening">
+                  Dear Students, Educators, and Supporters,
+                </p>
+
+                <!-- ========================
+                                 MAIN MESSAGE BODY
+                                 Personal story and vision
+                                 ======================== -->
+                <p class="message-paragraph">
+                  I started Study Buddy because I remember what it felt like to
+                  struggle. Not because I wasn't capable, but because I couldn't
+                  afford the help I needed. I watched classmates hire tutors,
+                  buy every study guide, and access resources that were simply
+                  out of reach for me. The system wasn't designed for students
+                  like me — and it still isn't designed for millions of students
+                  today.
+                </p>
+
+                <p class="message-paragraph">
+                  Education should be the great equalizer, not another barrier.
+                  Every student deserves access to guidance, clarity, and
+                  support — not just those who can pay for it. That's why we
+                  built Study Buddy to be completely free. No subscriptions. No
+                  paywalls. No compromises.
+                </p>
+
+                <p class="message-paragraph">
+                  We believe in you. We believe that with the right tools and
+                  the right support, you can achieve anything. StudyFlow is not
+                  just a product — it's our promise to stand with you, to make
+                  learning more efficient, more affordable, and more human.
+                </p>
+
+                <!-- ========================
+                                 CLOSING STATEMENT
+                                 Call to action and hope
+                                 ======================== -->
+                <p class="message-paragraph closing">
+                  Thank you for trusting us with your academic journey.
+                  Together, we are changing what education can be.
+                </p>
+
+                <!-- ========================
+                                 SIGNATURE
+                                 Personal sign-off
+                                 ======================== -->
+                <div class="message-signature">
+                  <p class="signature-text">
+                    With gratitude and determination,
+                  </p>
+                  <p class="signature-name">Mugisha Sangwa Olivier Ishimwe</p>
+                  <p class="signature-title">Founder & CEO</p>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================
+                 CORE VALUES
+                 Optional: Company principles
+                 Can be expanded as needed
+                 ======================================== -->
+        <div class="values-section">
+          <h3 class="values-title">What We Stand For</h3>
+          <div class="values-grid">
+            <!-- Value 1: Accessibility -->
+            <div class="value-item">
+              <div class="value-icon">🌍</div>
+              <h4 class="value-name">Accessibility</h4>
+              <p class="value-description">
+                Education is a right, not a privilege. We build for everyone.
+              </p>
+            </div>
+
+            <!-- Value 2: Transparency -->
+            <div class="value-item">
+              <div class="value-icon">💎</div>
+              <h4 class="value-name">Transparency</h4>
+              <p class="value-description">
+                Honest pricing, clear value, and no hidden agendas.
+              </p>
+            </div>
+
+            <!-- Value 3: Empathy -->
+            <div class="value-item">
+              <div class="value-icon">❤️</div>
+              <h4 class="value-name">Empathy</h4>
+              <p class="value-description">
+                We understand the struggle because we've lived it.
+              </p>
+            </div>
+
+            <!-- Value 4: Excellence -->
+            <div class="value-item">
+              <div class="value-icon">⭐</div>
+              <h4 class="value-name">Excellence</h4>
+              <p class="value-description">
+                Free doesn't mean basic. We deliver exceptional quality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CTA SECTION
+         Call to action for user conversion
+         ============================================ -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to stop stressing and start learning?</h2>
+          <p>
+            Join 50,000+ students who've saved time and money with StudyFlow
+          </p>
+          <div class="cta-buttons">
+            <button class="btn-primary btn-large">
+              Download for Free
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </button>
+          </div>
+          <p class="cta-subtext">
+            Available on Web, iOS, and Android • No credit card required
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <div class="footer-brand">
+              <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path
+                    d="M16 4L28 10V22L16 28L4 22V10L16 4Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M16 4V28M4 10L28 22M28 10L4 22"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    opacity="0.5"
+                  />
+                </svg>
+              </div>
+              <span class="brand-name">StudyFlow</span>
+            </div>
+            <p class="footer-tagline">
+              Making education accessible, efficient, and affordable for every
+              student.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#">Textbooks</a></li>
+              <li><a href="#">Integrations</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="help.html">Help Center</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Student Feedback</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 StudyFlow. Built with ❤️ for students.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+                ></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                ></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

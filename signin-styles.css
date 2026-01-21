@@ -1,0 +1,1517 @@
+/**
+ * ====================================================================
+ * STUDYFLOW SIGN-IN PAGE STYLES
+ * ====================================================================
+ * @file signin-styles.css
+ * @description Comprehensive styling for authentication page
+ * @author StudyFlow Team
+ * @version 2.0.0
+ * 
+ * TABLE OF CONTENTS:
+ * 1. CSS Variables & Theme System
+ * 2. Reset & Base Styles
+ * 3. Background & Decorative Elements
+ * 4. Theme Customizer Component
+ * 5. Layout Structure (Split-screen)
+ * 6. Branding Panel (Left Side)
+ * 7. Authentication Panel (Right Side)
+ * 8. Social Authentication Buttons
+ * 9. Form Elements & Validation
+ * 10. Animations & Transitions
+ * 11. Responsive Design
+ * 12. Accessibility Enhancements
+ * ====================================================================
+ */
+
+/* ===================================================================
+   1. CSS VARIABLES & THEME SYSTEM
+   ===================================================================
+   Centralized color and design tokens for easy theming
+   All colors support both light and dark modes
+   =================================================================== */
+
+:root {
+  /* Primary Brand Colors */
+  --primary-color: #0066cc;
+  --primary-dark: #004d99;
+  --primary-light: #3385d6;
+  --primary-hover: #0052a3;
+
+  /* Neutral Palette - Light Mode */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6c757d;
+  --text-tertiary: #adb5bd;
+  --border-color: #dee2e6;
+  --border-hover: #ced4da;
+
+  /* Semantic Colors */
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+
+  /* Social Media Brand Colors */
+  --google-color: #4285f4;
+  --facebook-color: #1877f2;
+  --apple-color: #000000;
+  --microsoft-color: #00a4ef;
+
+  /* Spacing Scale (8px base) */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+
+  /* Typography System */
+  --font-display: "Fraunces", serif;
+  --font-body: "Work Sans", sans-serif;
+  --font-mono: "Courier New", monospace;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 2rem; /* 32px */
+  --font-size-4xl: 2.5rem; /* 40px */
+
+  /* Shadow System */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+  /* Border Radius */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-2xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Z-Index Layers */
+  --z-base: 1;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal: 1050;
+  --z-toast: 1060;
+}
+
+/**
+ * Dark Mode Theme
+ * Inverted color scheme for reduced eye strain
+ */
+[data-theme="dark"] {
+  --bg-primary: #0f0f1e;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #2d2d44;
+  --text-primary: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --text-tertiary: #6c757d;
+  --border-color: #3d3d5c;
+  --border-hover: #4d4d6c;
+  --apple-color: #ffffff;
+}
+
+/* ===================================================================
+   2. RESET & BASE STYLES
+   ===================================================================
+   Normalize browser defaults and set foundation styles
+   =================================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Remove focus outline for mouse users, keep for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* ===================================================================
+   3. BACKGROUND & DECORATIVE ELEMENTS
+   ===================================================================
+   Animated gradient shapes and grid overlay for visual interest
+   =================================================================== */
+
+/**
+ * Background container
+ * Fixed position, covers entire viewport
+ */
+.background-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/**
+ * Floating gradient shapes
+ * Creates depth and visual interest with subtle animations
+ */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--primary-color)
+  );
+  bottom: -10%;
+  right: -10%;
+  animation-delay: -7s;
+}
+
+.shape-3 {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
+  top: 50%;
+  left: 50%;
+  animation-delay: -14s;
+}
+
+/**
+ * Floating animation
+ * Smooth, organic movement for background shapes
+ */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9) rotate(240deg);
+  }
+}
+
+/**
+ * Grid overlay
+ * Subtle grid pattern for additional depth
+ */
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(var(--border-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: gridMove 30s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* ===================================================================
+   4. THEME CUSTOMIZER COMPONENT
+   ===================================================================
+   Compact color customization panel
+   =================================================================== */
+
+/**
+ * Theme customizer container
+ * Fixed position in top-right corner
+ */
+.theme-customizer {
+  position: fixed;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  z-index: var(--z-fixed);
+}
+
+/**
+ * Toggle button
+ * Opens/closes customizer panel
+ */
+.customizer-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.customizer-toggle:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+}
+
+/**
+ * Customizer panel
+ * Hidden by default, slides in from right
+ */
+.customizer-panel {
+  position: absolute;
+  top: 0;
+  right: 60px;
+  width: 280px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(20px);
+  transition: all var(--transition-base);
+}
+
+.customizer-panel.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.customizer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.customizer-header h3 {
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+.customizer-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: var(--font-size-2xl);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.customizer-close:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.customizer-content {
+  padding: var(--space-md);
+}
+
+/**
+ * Color preset buttons
+ * Quick theme selection
+ */
+.color-presets {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.color-preset {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 3px solid transparent;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.color-preset:hover {
+  transform: scale(1.1);
+}
+
+.color-preset.active {
+  border-color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/**
+ * Custom color input
+ */
+.custom-color {
+  margin-bottom: var(--space-lg);
+}
+
+.custom-color label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+  color: var(--text-secondary);
+}
+
+.custom-color input[type="color"] {
+  width: 100%;
+  height: 44px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.custom-color input[type="color"]:hover {
+  border-color: var(--primary-color);
+}
+
+/**
+ * Mode switcher (Light/Dark)
+ */
+.mode-switcher {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  background: var(--bg-secondary);
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+}
+
+.mode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.mode-btn:hover {
+  background: var(--bg-tertiary);
+}
+
+.mode-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* ===================================================================
+   5. LAYOUT STRUCTURE (Split-screen)
+   ===================================================================
+   Two-panel layout: Branding (left) + Auth (right)
+   =================================================================== */
+
+/**
+ * Main container
+ * Split-screen layout using CSS Grid
+ */
+.signin-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: var(--z-base);
+}
+
+/* ===================================================================
+   6. BRANDING PANEL (Left Side)
+   ===================================================================
+   Company branding, value props, and social proof
+   =================================================================== */
+
+/**
+ * Branding panel container
+ * Left side of split-screen layout
+ */
+.branding-panel {
+  background: var(--bg-secondary);
+  padding: var(--space-3xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/**
+ * Branding content wrapper
+ * Centers and constrains content width
+ */
+.branding-content {
+  max-width: 500px;
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/**
+ * Brand link (logo + name)
+ * Links back to homepage
+ */
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  transition: transform var(--transition-fast);
+}
+
+.brand-link:hover {
+  transform: scale(1.02);
+}
+
+.logo {
+  color: var(--primary-color);
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/**
+ * Value propositions section
+ */
+.value-props {
+  margin-bottom: var(--space-3xl);
+}
+
+.welcome-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.welcome-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+}
+
+/**
+ * Benefits list
+ * Key features with icons
+ */
+.benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.benefit-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.benefit-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.benefit-text strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.benefit-text span {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/**
+ * Testimonial component
+ * Social proof from real student
+ */
+.testimonial {
+  padding: var(--space-xl);
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonial-quote {
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.author-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.author-role {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* ===================================================================
+   7. AUTHENTICATION PANEL (Right Side)
+   ===================================================================
+   Sign-in forms and authentication options
+   =================================================================== */
+
+/**
+ * Auth panel container
+ * Right side of split-screen layout
+ */
+.auth-panel {
+  background: var(--bg-primary);
+  padding: var(--space-3xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+/**
+ * Auth content wrapper
+ * Centers and constrains form width
+ */
+.auth-content {
+  width: 100%;
+  max-width: 440px;
+  animation: fadeInRight 0.8s ease-out;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/**
+ * Auth header
+ */
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.auth-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-sm);
+}
+
+.auth-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+}
+
+/* ===================================================================
+   8. SOCIAL AUTHENTICATION BUTTONS
+   ===================================================================
+   OAuth provider buttons (Google, Facebook, Apple, Microsoft)
+   =================================================================== */
+
+/**
+ * Social auth container
+ */
+.social-auth {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+/**
+ * Base social button styles
+ * Shared properties for all OAuth buttons
+ */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left var(--transition-slow);
+}
+
+.social-btn:hover::before {
+  left: 100%;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.social-btn:active {
+  transform: translateY(0);
+}
+
+/**
+ * Provider-specific button styles
+ */
+.google-btn:hover {
+  border-color: var(--google-color);
+  background: rgba(66, 133, 244, 0.05);
+}
+
+.facebook-btn:hover {
+  border-color: var(--facebook-color);
+  background: rgba(24, 119, 242, 0.05);
+}
+
+.apple-btn:hover {
+  border-color: var(--apple-color);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .apple-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.microsoft-btn:hover {
+  border-color: var(--microsoft-color);
+  background: rgba(0, 164, 239, 0.05);
+}
+
+/* ===================================================================
+   9. FORM ELEMENTS & VALIDATION
+   ===================================================================
+   Input fields, labels, error states, and form components
+   =================================================================== */
+
+/**
+ * Divider between social and email/phone auth
+ */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: var(--space-xl) 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.divider span {
+  padding: 0 var(--space-md);
+}
+
+/**
+ * Auth tabs (Email / Phone toggle)
+ */
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  background: var(--bg-secondary);
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+}
+
+.auth-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.auth-tab:hover {
+  background: var(--bg-tertiary);
+}
+
+.auth-tab.active {
+  background: var(--bg-primary);
+  color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+/**
+ * Auth form container
+ * Hidden by default, shown when tab is active
+ */
+.auth-form {
+  display: none;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Form group
+ * Container for label + input + error message
+ */
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+/**
+ * Form label
+ */
+.form-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+}
+
+/**
+ * Input wrapper
+ * Positions icon and toggle button
+ */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/**
+ * Input icon
+ */
+.input-icon {
+  position: absolute;
+  left: var(--space-md);
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: color var(--transition-fast);
+}
+
+/**
+ * Form input
+ * Base styles for all text inputs
+ */
+.form-input {
+  width: 100%;
+  padding: var(--space-md) var(--space-md) var(--space-md)
+    calc(var(--space-md) * 3);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.form-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.form-input:hover {
+  border-color: var(--border-hover);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+.form-input:focus + .input-icon {
+  color: var(--primary-color);
+}
+
+/**
+ * Input error state
+ */
+.form-input.error {
+  border-color: var(--error-color);
+}
+
+.form-input.error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/**
+ * Error message
+ */
+.error-message {
+  display: block;
+  margin-top: var(--space-sm);
+  color: var(--error-color);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.error-message:not(:empty) {
+  opacity: 1;
+  max-height: 100px;
+}
+
+/**
+ * Password toggle button
+ */
+.password-toggle {
+  position: absolute;
+  right: var(--space-md);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: var(--space-sm);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.password-toggle:hover {
+  color: var(--text-primary);
+}
+
+.eye-icon,
+.eye-off-icon {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/**
+ * Phone input wrapper
+ * Special layout for country code + number
+ */
+.phone-input-wrapper {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-sm);
+}
+
+/**
+ * Country code selector
+ */
+.country-select {
+  padding: var(--space-md);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.country-select:hover {
+  border-color: var(--border-hover);
+}
+
+.country-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+/**
+ * Phone number input
+ */
+.phone-number-input {
+  padding-left: var(--space-md);
+}
+
+/**
+ * Info box
+ * Informational message for users
+ */
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: rgba(23, 162, 184, 0.1);
+  border-left: 3px solid var(--info-color);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.info-box svg {
+  color: var(--info-color);
+  flex-shrink: 0;
+}
+
+/**
+ * Form options row
+ * Remember me + Forgot password
+ */
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+
+/**
+ * Custom checkbox
+ */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.checkbox-label:hover .checkbox-custom {
+  border-color: var(--primary-color);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/**
+ * Forgot password link
+ */
+.forgot-link {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+/**
+ * Submit button
+ */
+.submit-btn {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left var(--transition-slow);
+}
+
+.submit-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  background: var(--text-tertiary);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/**
+ * Button loading state
+ */
+.btn-loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * Sign up link
+ */
+.signup-link {
+  text-align: center;
+  margin-top: var(--space-xl);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.signup-link a {
+  font-weight: 600;
+}
+
+/**
+ * Legal links
+ */
+.legal-links {
+  text-align: center;
+  margin-top: var(--space-lg);
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+.legal-links a {
+  text-decoration: underline;
+}
+
+/* ===================================================================
+   10. ANIMATIONS & TRANSITIONS
+   ===================================================================
+   Micro-interactions and loading states
+   =================================================================== */
+
+/**
+ * Pulse animation for loading states
+ */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/**
+ * Shake animation for errors
+ */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* ===================================================================
+   11. TOAST NOTIFICATIONS
+   ===================================================================
+   Success/error message system
+   =================================================================== */
+
+.toast-container {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  pointer-events: none;
+}
+
+.toast {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 300px;
+  max-width: 400px;
+  pointer-events: auto;
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast.success {
+  border-left: 4px solid var(--success-color);
+}
+
+.toast.error {
+  border-left: 4px solid var(--error-color);
+}
+
+.toast-icon {
+  flex-shrink: 0;
+}
+
+.toast-message {
+  flex: 1;
+  font-size: var(--font-size-sm);
+}
+
+/* ===================================================================
+   12. RESPONSIVE DESIGN
+   ===================================================================
+   Mobile and tablet optimizations
+   =================================================================== */
+
+/**
+ * Tablet breakpoint (1024px)
+ */
+@media (max-width: 1024px) {
+  .signin-container {
+    grid-template-columns: 1fr;
+  }
+
+  .branding-panel {
+    display: none;
+  }
+
+  .auth-panel {
+    padding: var(--space-xl);
+  }
+}
+
+/**
+ * Mobile breakpoint (768px)
+ */
+@media (max-width: 768px) {
+  :root {
+    --font-size-3xl: 1.75rem;
+    --font-size-4xl: 2rem;
+  }
+
+  .auth-panel {
+    padding: var(--space-lg);
+  }
+
+  .auth-content {
+    max-width: 100%;
+  }
+
+  .theme-customizer {
+    top: var(--space-md);
+    right: var(--space-md);
+  }
+
+  .customizer-panel {
+    right: 50px;
+    width: 260px;
+  }
+
+  .phone-input-wrapper {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .toast-container {
+    left: var(--space-md);
+    right: var(--space-md);
+  }
+
+  .toast {
+    min-width: auto;
+    max-width: 100%;
+  }
+}
+
+/**
+ * Small mobile breakpoint (480px)
+ */
+@media (max-width: 480px) {
+  .auth-panel {
+    padding: var(--space-md);
+  }
+
+  .auth-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .social-btn {
+    font-size: var(--font-size-sm);
+  }
+}
