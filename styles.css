@@ -928,7 +928,10 @@ img {
   font-weight: 700;
   margin-bottom: var(--spacing-md);
 }
-
+#motivational_cap {
+  font-weight: bolder;
+  color: #99004f;
+}
 .section-subtitle {
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
