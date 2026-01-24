@@ -554,6 +554,22 @@ img {
   box-shadow: var(--shadow-md);
 }
 
+#Donate_button {
+  background-color: #ff07ac;
+  animation: heart-beat 1s infinite;
+}
+#Donate_button:hover {
+  background: #8b035e;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+#Donate_button p {
+  font-size: larger;
+  animation: heart-beat 200s infinite;
+  display: inline;
+}
+
 .btn-primary:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
@@ -1940,5 +1956,14 @@ img {
 
   .hero {
     padding: calc(80px + var(--spacing-2xl)) 0 var(--spacing-2xl);
+  }
+}
+
+@keyframes heart-beat {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.05);
   }
 }

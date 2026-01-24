@@ -1,0 +1,1107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- 
+    ====================================================================
+    STUDYFLOW INTEGRATIONS PAGE
+    ====================================================================
+    Purpose: Showcase platform integrations and explain authentication
+    Features:
+    - Major LMS platforms (Canvas, Blackboard, Moodle, etc.)
+    - AI model partnerships and capabilities
+    - Educational tool integrations
+    - Logo slideshow animations
+    - Privacy and security messaging
+    - Authentication flow explanation
+    - Interactive engagement elements
+    ====================================================================
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Study Buddy integrates with Canvas, Blackboard, Moodle, and more - Connect your learning platforms securely"
+    />
+    <title>Integrations - Study Buddy</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="integrations-styles.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=Work+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 4L28 10V22L16 28L4 22V10L16 4Z' stroke='%230066cc' fill='none' stroke-width='2'/></svg>"
+    />
+  </head>
+  <body>
+    <!-- 
+    ====================================================================
+    NAVIGATION
+    ====================================================================
+    -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-brand">
+          <div class="logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path
+                d="M16 4L28 10V22L16 28L4 22V10L16 4Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 4V28M4 10L28 22M28 10L4 22"
+                stroke="currentColor"
+                stroke-width="1.5"
+                opacity="0.5"
+              />
+            </svg>
+          </div>
+          <span class="brand-name">Study Buddy</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="help.html">Help</a>
+          <a href="signin.html" class="btn-primary-small">Sign In</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 
+    ====================================================================
+    HERO SECTION
+    ====================================================================
+    -->
+    <section class="hero">
+      <div class="hero-background">
+        <div class="grid-pattern"></div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Secure & Private
+          </div>
+          <h1 class="hero-title">
+            Connect everything you use,<br />
+            <span class="gradient-text">all in one place</span>
+          </h1>
+          <p class="hero-subtitle">
+            Study Buddy seamlessly integrates with your school's LMS, textbooks,
+            calendar, and more — so you can focus on learning, not juggling
+            apps.
+          </p>
+          <div class="hero-cta">
+            <button
+              class="btn-primary btn-large"
+              onclick="scrollToSection('connect-section')"
+            >
+              See How It Works
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button
+              class="btn-ghost btn-large"
+              onclick="scrollToSection('platforms-section')"
+            >
+              View All Platforms
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    ====================================================================
+    KEY INTEGRATIONS OVERVIEW
+    ====================================================================
+    Three main categories: LMS, AI, Tools
+    ====================================================================
+    -->
+    <section class="integrations-overview">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Everything works together</h2>
+          <p class="section-subtitle">One platform, endless possibilities</p>
+        </div>
+
+        <div class="integration-categories">
+          <div class="category-card" data-category="lms">
+            <div class="category-icon">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="category-title">Learning Platforms</h3>
+            <p class="category-description">
+              Connect Canvas, Blackboard, Moodle, Google Classroom, and more. We
+              sync your courses, assignments, and deadlines automatically.
+            </p>
+            <div class="category-stat">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">LMS Platforms</span>
+            </div>
+          </div>
+
+          <div class="category-card" data-category="ai">
+            <div class="category-icon">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h3 class="category-title">AI-Powered Learning</h3>
+            <p class="category-description">
+              Powered by cutting-edge AI models including Claude, GPT-4, Gemini,
+              and specialized educational AI to give you the best explanations.
+            </p>
+            <div class="category-stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">AI Models</span>
+            </div>
+          </div>
+
+          <div class="category-card" data-category="tools">
+            <div class="category-icon">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h3 class="category-title">Productivity Tools</h3>
+            <p class="category-description">
+              Integrate with Google Drive, Microsoft OneDrive, Notion, and
+              calendar apps to keep everything organized in one unified
+              workspace.
+            </p>
+            <div class="category-stat">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Tools & Apps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    ====================================================================
+    HOW IT WORKS - AUTHENTICATION FLOW
+    ====================================================================
+    Step-by-step explanation with visual flow
+    ====================================================================
+    -->
+    <section class="how-it-works" id="connect-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How connecting works</h2>
+          <p class="section-subtitle">
+            Simple, secure, and takes less than 2 minutes
+          </p>
+        </div>
+
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                  <polyline points="10 17 15 12 10 7"></polyline>
+                  <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+              </div>
+              <h3 class="step-title">Choose Your Platform</h3>
+              <p class="step-description">
+                Select your school's LMS (Canvas, Blackboard, Moodle, etc.) or
+                other tools you want to connect. We support all major platforms.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-connector"></div>
+
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect
+                    x="3"
+                    y="11"
+                    width="18"
+                    height="11"
+                    rx="2"
+                    ry="2"
+                  ></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <h3 class="step-title">Authenticate Securely</h3>
+              <p class="step-description">
+                You'll be redirected to your school's official login page. We
+                never see your password — authentication happens directly with
+                your institution.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-connector"></div>
+
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h3 class="step-title">Grant Permissions</h3>
+              <p class="step-description">
+                Approve what Study Buddy can access (courses, assignments,
+                grades). You have full control and can revoke access anytime.
+              </p>
+            </div>
+          </div>
+
+          <div class="step-connector"></div>
+
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <div class="step-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h3 class="step-title">Start Learning Smarter</h3>
+              <p class="step-description">
+                That's it! Your courses, assignments, and materials are now
+                synced. Our AI tutor knows your syllabus and is ready to help.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="how-it-works-note">
+          <div class="note-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="note-content">
+            <strong>Industry-Standard OAuth 2.0:</strong> We use the same
+            authentication protocol as Google, Microsoft, and major tech
+            companies. Your credentials stay with your school — we only receive
+            a secure access token.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    ====================================================================
+    LMS PLATFORMS SECTION
+    ====================================================================
+    Detailed list of supported LMS platforms
+    ====================================================================
+    -->
+    <section class="platforms-section" id="platforms-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Supported Learning Platforms</h2>
+          <p class="section-subtitle">
+            Connect with the LMS your school already uses
+          </p>
+        </div>
+
+        <div class="platforms-grid">
+          <!-- Canvas -->
+          <div class="platform-card featured">
+            <div class="platform-logo canvas-logo">
+              <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="12" fill="#E13F2B" />
+                <path d="M30 35h40v30H30z" fill="white" />
+                <path d="M35 40h10v20H35zm15 0h10v20H50z" fill="#E13F2B" />
+              </svg>
+            </div>
+            <h3 class="platform-name">Canvas</h3>
+            <p class="platform-description">
+              Most popular in higher education. Intuitive, mobile-friendly, and
+              widely adopted.
+            </p>
+            <div class="platform-tags">
+              <span class="tag">Higher Ed</span>
+              <span class="tag">K-12</span>
+              <span class="tag">Mobile-First</span>
+            </div>
+          </div>
+
+          <!-- Blackboard -->
+          <div class="platform-card featured">
+            <div class="platform-logo blackboard-logo">
+              <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="12" fill="#000000" />
+                <path d="M25 30h50v40H25z" fill="white" />
+                <circle cx="35" cy="45" r="5" fill="#000" />
+                <circle cx="50" cy="45" r="5" fill="#000" />
+                <circle cx="65" cy="45" r="5" fill="#000" />
+              </svg>
+            </div>
+            <h3 class="platform-name">Blackboard</h3>
+            <p class="platform-description">
+              Enterprise-grade platform with deep integration and comprehensive
+              reporting.
+            </p>
+            <div class="platform-tags">
+              <span class="tag">Higher Ed</span>
+              <span class="tag">K-12</span>
+              <span class="tag">Enterprise</span>
+            </div>
+          </div>
+
+          <!-- Moodle -->
+          <div class="platform-card">
+            <div class="platform-logo moodle-logo">
+              <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="12" fill="#F98012" />
+                <path d="M30 40h40l-20 30z" fill="white" />
+              </svg>
+            </div>
+            <h3 class="platform-name">Moodle</h3>
+            <p class="platform-description">
+              Open-source and highly customizable. Popular worldwide for its
+              flexibility.
+            </p>
+            <div class="platform-tags">
+              <span class="tag">Open Source</span>
+              <span class="tag">Customizable</span>
+            </div>
+          </div>
+
+          <!-- Google Classroom -->
+          <div class="platform-card">
+            <div class="platform-logo google-logo">
+              <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="12" fill="#4285F4" />
+                <path d="M35 30h30v15H35z" fill="#34A853" />
+                <path d="M35 50h30v15H35z" fill="#FBBC05" />
+              </svg>
+            </div>
+            <h3 class="platform-name">Google Classroom</h3>
+            <p class="platform-description">
+              Dominant in K-12. Seamless integration with Google Workspace apps.
+            </p>
+            <div class="platform-tags">
+              <span class="tag">K-12</span>
+              <span class="tag">Easy Setup</span>
+            </div>
+          </div>
+
+          <!-- D2L Brightspace -->
+          <div class="platform-card">
+            <div class="platform-logo brightspace-logo">
+              <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="12" fill="#F05A28" />
+                <circle cx="50" cy="50" r="20" fill="white" />
+                <circle cx="50" cy="50" r="10" fill="#F05A28" />
+              </svg>
+            </div>
+            <h3 class="platform-name">D2L Brightspace</h3>
+            <p class="platform-description">
+              Personalized learning with strong analytics and adaptive features.
+            </p>
+            <div class="platform-tags">
+              <span class="tag">Personalized</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </div>
+
+          <!-- Schoology -->
+          <div class="platform-card">
+            <div class="platform-logo schoology-logo">
+              <svg width="60" height="60" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="12" fill="#2BB673" />
+                <path d="M30 45h15v20H30zm25 0h15v20H55z" fill="white" />
+              </svg>
+            </div>
+            <h3 class="platform-name">Schoology</h3>
+            <p class="platform-description">
+              K-12 favorite with social media-style interface and collaboration
+              tools.
+            </p>
+            <div class="platform-tags">
+              <span class="tag">K-12</span>
+              <span class="tag">Social</span>
+            </div>
+          </div>
+
+          <!-- More platforms indicator -->
+          <div class="platform-card more-platforms">
+            <div class="more-icon">
+              <svg
+                width="60"
+                height="60"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="1"></circle>
+                <circle cx="19" cy="12" r="1"></circle>
+                <circle cx="5" cy="12" r="1"></circle>
+              </svg>
+            </div>
+            <h3 class="platform-name">And Many More</h3>
+            <p class="platform-description">
+              Including Sakai, Edsby, Edmodo, Itslearning, and custom
+              institutional systems.
+            </p>
+            <button class="btn-secondary btn-small">Request Integration</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    ====================================================================
+    AI MODELS SECTION
+    ====================================================================
+    Showcase of AI partnerships powering the platform
+    ====================================================================
+    -->
+    <section class="ai-models-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Powered by the world's best AI</h2>
+          <p class="section-subtitle">
+            We combine multiple AI models to give you the most accurate, helpful
+            explanations
+          </p>
+        </div>
+
+        <div class="ai-models-grid">
+          <div class="ai-model-card">
+            <div class="ai-logo claude-logo">
+              <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="20" fill="#CC9B7A" />
+                <path
+                  d="M30 35l20 30 20-30"
+                  stroke="white"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <h3 class="ai-name">Claude (Anthropic)</h3>
+            <p class="ai-description">
+              Advanced reasoning and nuanced explanations for complex academic
+              topics.
+            </p>
+          </div>
+
+          <div class="ai-model-card">
+            <div class="ai-logo gpt-logo">
+              <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="20" fill="#10A37F" />
+                <path d="M40 30h20v40H40z" fill="white" />
+                <circle cx="50" cy="50" r="8" fill="#10A37F" />
+              </svg>
+            </div>
+            <h3 class="ai-name">GPT-4 (OpenAI)</h3>
+            <p class="ai-description">
+              Versatile problem-solving across all subjects with extensive
+              knowledge.
+            </p>
+          </div>
+
+          <div class="ai-model-card">
+            <div class="ai-logo gemini-logo">
+              <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="20" fill="#4285F4" />
+                <path d="M30 50l20-15 20 15-20 15z" fill="white" />
+              </svg>
+            </div>
+            <h3 class="ai-name">Gemini (Google)</h3>
+            <p class="ai-description">
+              Multimodal understanding for diagrams, charts, and visual learning
+              materials.
+            </p>
+          </div>
+
+          <div class="ai-model-card">
+            <div class="ai-logo perplexity-logo">
+              <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="20" fill="#1FB4E6" />
+                <circle cx="50" cy="40" r="10" fill="white" />
+                <path d="M50 55v20" stroke="white" stroke-width="6" />
+              </svg>
+            </div>
+            <h3 class="ai-name">Perplexity</h3>
+            <p class="ai-description">
+              Real-time research with citations for current events and recent
+              discoveries.
+            </p>
+          </div>
+
+          <div class="ai-model-card">
+            <div class="ai-logo mistral-logo">
+              <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                <rect width="100" height="100" rx="20" fill="#FF6B35" />
+                <path d="M30 45h40M30 55h40" stroke="white" stroke-width="5" />
+              </svg>
+            </div>
+            <h3 class="ai-name">Mistral AI</h3>
+            <p class="ai-description">
+              Fast responses for quick questions and efficient study session
+              support.
+            </p>
+          </div>
+        </div>
+
+        <div class="ai-explanation">
+          <div class="explanation-icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              ></path>
+            </svg>
+          </div>
+          <div class="explanation-content">
+            <h4>Why multiple AI models?</h4>
+            <p>
+              Different AI models have different strengths. By intelligently
+              routing your questions to the best model for each situation, we
+              provide more accurate, contextual, and helpful explanations than
+              any single AI could offer alone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    ====================================================================
+    LOGO SLIDESHOW
+    ====================================================================
+    Infinite scrolling showcase of all integrations
+    ====================================================================
+    -->
+    <section class="logo-slideshow-section">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="slideshow-title">
+            Trusted integrations powering your success
+          </h3>
+        </div>
+      </div>
+
+      <div class="slideshow-container">
+        <div class="slideshow-track" id="slideshowTrack">
+          <!-- LMS Platforms -->
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Canvas</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Blackboard</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Moodle</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Google Classroom</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Brightspace</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Schoology</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Sakai</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Edmodo</div>
+          </div>
+
+          <!-- AI Models -->
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Claude</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">GPT-4</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Gemini</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Perplexity</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Mistral</div>
+          </div>
+
+          <!-- Productivity Tools -->
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Google Drive</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">OneDrive</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Notion</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Dropbox</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Zoom</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Microsoft Teams</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Slack</div>
+          </div>
+
+          <!-- Calendar -->
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Google Calendar</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Outlook</div>
+          </div>
+          <div class="slideshow-item">
+            <div class="slideshow-logo">Apple Calendar</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    ====================================================================
+    PRIVACY & SECURITY SECTION
+    ====================================================================
+    Comprehensive privacy messaging and security features
+    ====================================================================
+    -->
+    <section class="privacy-section">
+      <div class="container">
+        <div class="privacy-content">
+          <div class="privacy-header">
+            <div class="privacy-icon">
+              <svg
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M9 12l2 2 4-4"></path>
+              </svg>
+            </div>
+            <h2 class="privacy-title">Your privacy is our priority</h2>
+            <p class="privacy-subtitle">
+              We take data security seriously. Here's exactly how we protect
+              your information.
+            </p>
+          </div>
+
+          <div class="privacy-features">
+            <div class="privacy-feature">
+              <div class="feature-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect
+                    x="3"
+                    y="11"
+                    width="18"
+                    height="11"
+                    rx="2"
+                    ry="2"
+                  ></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h3 class="feature-title">Bank-Level Encryption</h3>
+                <p class="feature-description">
+                  All data is encrypted in transit (TLS 1.3) and at rest
+                  (AES-256). The same encryption used by major financial
+                  institutions.
+                </p>
+              </div>
+            </div>
+
+            <div class="privacy-feature">
+              <div class="feature-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h3 class="feature-title">OAuth 2.0 Authentication</h3>
+                <p class="feature-description">
+                  We never see your passwords. Authentication happens directly
+                  with your school using industry-standard OAuth protocols.
+                </p>
+              </div>
+            </div>
+
+            <div class="privacy-feature">
+              <div class="feature-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h3 class="feature-title">Read-Only Access</h3>
+                <p class="feature-description">
+                  We only read your course information — we can't post, submit,
+                  or modify anything in your LMS. You stay in complete control.
+                </p>
+              </div>
+            </div>
+
+            <div class="privacy-feature">
+              <div class="feature-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="12" y1="18" x2="12" y2="12"></line>
+                  <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h3 class="feature-title">FERPA Compliant</h3>
+                <p class="feature-description">
+                  Fully compliant with student privacy laws (FERPA, COPPA,
+                  GDPR). Your educational records are protected by law.
+                </p>
+              </div>
+            </div>
+
+            <div class="privacy-feature">
+              <div class="feature-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h3 class="feature-title">You Control Your Data</h3>
+                <p class="feature-description">
+                  Disconnect anytime with one click. Export or delete your data
+                  whenever you want. No questions asked.
+                </p>
+              </div>
+            </div>
+
+            <div class="privacy-feature">
+              <div class="feature-icon">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                  <line x1="20" y1="8" x2="20" y2="14"></line>
+                  <line x1="23" y1="11" x2="17" y2="11"></line>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h3 class="feature-title">No Selling Your Data</h3>
+                <p class="feature-description">
+                  We will never sell your personal information to third parties.
+                  Ever. Your data helps you learn — not advertisers profit.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="privacy-certifications">
+            <h3>Our Certifications & Compliance</h3>
+            <div class="cert-badges">
+              <div class="cert-badge">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>SOC 2 Type II</span>
+              </div>
+              <div class="cert-badge">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>FERPA Compliant</span>
+              </div>
+              <div class="cert-badge">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>GDPR Compliant</span>
+              </div>
+              <div class="cert-badge">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span>COPPA Compliant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    ====================================================================
+    CTA SECTION
+    ====================================================================
+    Final call-to-action to get started
+    ====================================================================
+    -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to connect everything?</h2>
+          <p class="cta-subtitle">
+            Join thousands of students who've simplified their academic lives
+            with Study Buddy
+          </p>
+          <div class="cta-buttons">
+            <a href="signin.html" class="btn-primary btn-large">
+              Get Started Free
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="help.html" class="btn-ghost btn-large">
+              Have Questions?
+            </a>
+          </div>
+          <p class="cta-note">
+            No credit card required • Takes less than 2 minutes • Free forever
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 
+    ====================================================================
+    FOOTER
+    ====================================================================
+    -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M16 4L28 10V22L16 28L4 22V10L16 4Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16 4V28M4 10L28 22M28 10L4 22"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  opacity="0.5"
+                />
+              </svg>
+            </div>
+            <span class="brand-name">Study Buddy</span>
+          </div>
+          <p class="footer-tagline">
+            Connecting your learning journey, one platform at a time.
+          </p>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Study Buddy. Your data, your control, your success.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="integrations-script.js"></script>
+  </body>
+</html>
